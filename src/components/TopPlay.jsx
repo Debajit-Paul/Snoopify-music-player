@@ -18,29 +18,31 @@ const TopChartCard = ({
   handlePauseClick,
   handlePlayClick,
 }) => (
-  <div className="w-full lg:w-[31%] flex flex-wrap flex-row items-center bg-gray-800 bg-opacity-70 hover:bg-[#3535357a] pl-0 pr-4 cursor-pointer mb-2 ml-2 rounded-lg backdrop-blur-lg">
-    <div className="flex-1 flex flex-row justify-between items-center">
-      <img
-        className="w-[87px] h-[87px] rounded-l-md"
-        src={song?.images?.coverart}
-        alt={song?.title}
-      />
-      <div className="flex-1 flex flex-col justify-center mx-3">
-        <Link to={`/songs/${song.key}`}>
-          <p className=" text-base font-medium text-white">{song?.title}</p>
-        </Link>
-        <Link to={`/artists/${song?.artists[0]?.adamid}`}>
+  <div className=" w-full lg:w-[32.59%] flex flex-row items-center md:bg-black md:bg-opacity-50 bg-opacity-70 hover:bg-[#3535357a] pl-0 pr-4 cursor-pointer mb-2 rounded-lg backdrop-blur-lg justify-between">
+    <Link to={`/songs/${song.key}`}>
+      <div className="flex-1 flex flex-row justify-between items-center">
+        <img
+          className="w-20 h-20 rounded-l-md"
+          src={song?.images?.coverart}
+          alt={song?.title}
+        />
+        <div className="flex-1 flex flex-col justify-center mx-3">
+          <p className=" text-lg font-medium text-white w-40 truncate">
+            {song?.title}
+          </p>
+          {/* <Link to={`/artists/${song?.artists[0]?.adamid}`}>
           <p className="text-base text-gray-300 mt-1">{song?.subtitle}</p>
-        </Link>
+        </Link> */}
+        </div>
       </div>
-      <PlayPause
-        isPlaying={isPlaying}
-        activeSong={activeSong}
-        song={song}
-        handlePause={handlePauseClick}
-        handlePlay={() => handlePlayClick(song, i)}
-      />
-    </div>
+    </Link>
+    <PlayPause
+      isPlaying={isPlaying}
+      activeSong={activeSong}
+      song={song}
+      handlePause={handlePauseClick}
+      handlePlay={() => handlePlayClick(song, i)}
+    />
   </div>
 );
 
@@ -54,7 +56,7 @@ const TopPlay = () => {
   //   divRef.current.scrollIntoView({ behavior: "smooth" });
   // });
 
-  const topPlays = data?.tracks?.slice(0, 6);
+  const topPlays = data?.slice(7, 13);
 
   const handlePauseClick = () => {
     dispatch(playPause(false));
@@ -73,7 +75,7 @@ const TopPlay = () => {
             Top Charts
           </h2>
           <Link to="/top-charts">
-            <p className="text-white font-semibold text-base cursor-pointer">
+            <p className="text-white font-semibold text-base cursor-pointer hover:underline">
               see more
             </p>
           </Link>
@@ -100,7 +102,7 @@ const TopPlay = () => {
             Top Artist
           </h2>
           <Link to="/top-artists">
-            <p className="text-white font-semibold text-base cursor-pointer">
+            <p className="text-white font-semibold text-base cursor-pointer hover:underline">
               see more
             </p>
           </Link>
@@ -118,11 +120,11 @@ const TopPlay = () => {
           {topPlays?.map((song, i) => (
             <SwiperSlide
               key={song?.key}
-              style={{ width: "18%", height: "auto" }}
-              className="animate-slideright bg-[#353535d3] hover:bg-[#353535] pt-4 rounded-lg"
+              style={{ width: "20%", height: "auto" }}
+              className="animate-slideright md:bg-[#353535d3] hover:bg-[#353535] pt-3 rounded-lg"
             >
               <Link
-                to={`/artists/${song?.artists[0].adamid}`}
+                to={`/artists/${song?.artists[0]?.adamid}`}
                 className="flex-1 flex flex-col justify-center mx-3"
               >
                 <img
@@ -130,7 +132,7 @@ const TopPlay = () => {
                   alt="name"
                   className="rounded-full w-full object-cover"
                 />
-                <p className=" text-sm text-center text-gray-300 mt-1">
+                <p className=" text-sm text-center text-gray-300 my-3 mb-5 w-30 truncate">
                   {song?.subtitle}
                 </p>
               </Link>

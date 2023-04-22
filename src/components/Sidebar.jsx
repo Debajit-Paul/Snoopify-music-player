@@ -2,6 +2,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { RiCloseLine } from "react-icons/ri";
 import { HiOutlineMenu } from "react-icons/hi";
+import { Link } from "react-router-dom";
 
 import { logo } from "../assets";
 import { links } from "../assets/constants";
@@ -12,7 +13,7 @@ const NavLinks = ({ handleClick }) => (
       <NavLink
         key={item.name}
         to={item.to}
-        className="flex flex-row justify-start items-center my-8 text-base font-bold text-[#a7a7a7] hover:text-white "
+        className="flex flex-row justify-start items-center my-8 ml-3 text-base font-bold text-[#a7a7a7] hover:text-white "
         onClick={() => handleClick && handleClick()}
       >
         <item.icon className="w-6 h-6 mx-3" />
@@ -26,20 +27,22 @@ const Sidebar = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   return (
     <>
-      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#181818]">
-        <img src={logo} alt="logo" className="w-full h-14 object-contain" />
+      <div className="md:flex hidden flex-col w-[240px] py-10 px-4 bg-[#000000]">
+        <Link to={"/"}>
+          <img src={logo} alt="logo" className=" w-full h-10 object-contain" />
+        </Link>
         <NavLinks />
       </div>
 
-      <div className="absolute md:hidden block top-6 right-3 cursor-pointer">
+      <div className="absolute md:hidden block top-3 right-4 cursor-pointer">
         {mobileMenuOpen ? (
           <RiCloseLine
-            className="w-6 h-6 mr-2 text-white"
+            className="w-8 h-8 mr-2 text-white"
             onClick={() => setMobileMenuOpen(false)}
           />
         ) : (
           <HiOutlineMenu
-            className="w-6 h-6 mr-2 text-white"
+            className="w-8 h-8 mr-2 text-white"
             onClick={() => setMobileMenuOpen(true)}
           />
         )}
@@ -47,7 +50,7 @@ const Sidebar = () => {
 
       <div
         className={`absolute top-0 h-screen w-2/3 
-        bg-gradient-to-tl from-white/10 to-[#483d8b] 
+        bg-gradient-to-tl from-white/5 to-[#181818] 
         backdrop-blur-lg z-10 p-6 md:hidden 
         smooth-transition ${mobileMenuOpen ? "left-0" : "-left-full"}`}
       >
