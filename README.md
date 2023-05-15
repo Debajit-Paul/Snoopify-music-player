@@ -1,4 +1,4 @@
-# Snoopify ![logo](https://github.com/Debajit-Paul/Snoopify-music-player/assets/62774980/31719955-7941-4cbe-9fd1-7d3f2dc00ac8)
+# ![logo](https://github.com/Debajit-Paul/Snoopify-music-player/assets/62774980/31719955-7941-4cbe-9fd1-7d3f2dc00ac8)
 React-based music streaming site with Redux Toolkit, Tailwind CSS for responsive UI design, Shazam Core API for music discovery.
 
 
