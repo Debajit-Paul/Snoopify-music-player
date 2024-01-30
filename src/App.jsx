@@ -31,7 +31,7 @@ const App = () => {
               color: "white",
               backgroundColor: "rgba(0, 0, 0, 0.7)",
             }}
-            className=" mt-2 p-2 rounded-full"
+            className=" mt-2 p-2 rounded-full cursor-pointer"
             onClick={() => navigator(-1)}
           />
           <ArrowForwardIosIcon
@@ -40,7 +40,7 @@ const App = () => {
               color: "white",
               backgroundColor: "rgba(0, 0, 0, 0.7)",
             }}
-            className=" mt-2 p-2  ml-3 rounded-full"
+            className=" mt-2 p-2  ml-3 rounded-full cursor-pointer"
             onClick={() => navigator(+1)}
           />
         </div>

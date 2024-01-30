@@ -124,11 +124,15 @@ const TopPlay = () => {
               className="animate-slideright md:bg-[#353535d3] hover:bg-[#353535] pt-3 rounded-lg"
             >
               <Link
-                to={`/artists/${song?.artists[0]?.adamid}`}
+                to={
+                  song.artists
+                    ? `/artists/${song?.artists[0]?.adamid}`
+                    : "/top-artists"
+                }
                 className="flex-1 flex flex-col justify-center mx-3"
               >
                 <img
-                  src={song?.images.background}
+                  src={song?.images?.background}
                   alt="name"
                   className="rounded-full w-full object-cover"
                 />
